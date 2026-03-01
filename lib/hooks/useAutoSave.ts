@@ -4,7 +4,7 @@ import { doc, setDoc, Timestamp } from 'firebase/firestore';
 
 export function useAutoSave(attemptId: string, currentQuestionId: string, answer: string | undefined) {
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const initialMount = useRef(true);
 
   useEffect(() => {
@@ -34,7 +34,9 @@ export function useAutoSave(attemptId: string, currentQuestionId: string, answer
       }
     }, 800);
 
-    return () => clearTimeout(timeoutRef.current);
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
   }, [answer, attemptId, currentQuestionId]);
 
   return { saveStatus };
