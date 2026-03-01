@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  /* You can add custom colors here later if needed */
+  --color-background: #f8fafc;
+}
+
+body {
+  background-color: var(--color-background);
+}
