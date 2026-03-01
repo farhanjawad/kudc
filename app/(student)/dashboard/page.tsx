@@ -18,8 +18,8 @@ async function getUserData() {
 
   return {
     user: userDoc.data(),
-    attempts: attemptsSnap.docs.map(d => ({ id: d.id, ...d.data() })),
-    quizzes: quizzesSnap.docs.map(d => ({ id: d.id, ...d.data() }))
+    attempts: attemptsSnap.docs.map(d => ({ id: d.id, ...d.data() })) as any[],
+    quizzes: quizzesSnap.docs.map(d => ({ id: d.id, ...d.data() })) as any[]
   };
 }
 
