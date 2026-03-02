@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { 
-  BookOpen, Clock, ShieldCheck, ArrowRight, 
+   Clock, ShieldCheck, ArrowRight, 
   LayoutDashboard, BookText, Lock, ChevronRight,
   UserCircle, FileQuestion, Quote, Library, CheckCircle2
 } from 'lucide-react';
@@ -18,15 +18,12 @@ export default function LandingPage() {
       <nav className="bg-white/80 backdrop-blur-md border-b border-emerald-100 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-3 text-emerald-800">
-            <div className="bg-emerald-100 p-2 rounded-lg">
-              <BookOpen className="w-6 h-6 text-emerald-700" />
-            </div>
-            <span className="text-xl font-bold font-serif tracking-tight">Institute Portal</span>
+            <span className="text-xl font-bold font-serif tracking-tight">KUDC</span>
           </div>
           <Link href="/login">
             <button className="flex items-center px-5 py-2.5 bg-slate-900 text-white text-sm font-medium rounded-xl hover:bg-emerald-800 transition-colors shadow-sm">
               <UserCircle className="w-4 h-4 mr-2" />
-              Student Login
+             Login
             </button>
           </Link>
         </div>
@@ -234,7 +231,7 @@ export default function LandingPage() {
 
       {/* Footer */}
       <footer className="w-full text-center py-8 text-slate-500 text-sm">
-        <p>© {new Date().getFullYear()} Institute Learning Management System. Dedicated to Preserving Knowledge.</p>
+        <p>© {new Date().getFullYear()} KUDC Exam Management System. Dedicated to Preserving Knowledge.</p>
       </footer>
     </div>
   );
