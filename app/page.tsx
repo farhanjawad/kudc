@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { 
-  BookOpen, Clock, Target, ArrowRight, Scroll, 
-  BookText, FileQuestion, GraduationCap, CheckCircle2,
-  Calendar, Award, LayoutList
+  BookOpen, Clock, ShieldCheck, ArrowRight, 
+  LayoutDashboard, BookText, Lock, ChevronRight,
+  UserCircle, FileQuestion, Quote, Library, CheckCircle2
 } from 'lucide-react';
 
 export default function LandingPage() {
@@ -11,165 +11,230 @@ export default function LandingPage() {
 
   return (
     <div 
-      className="min-h-screen bg-[#fdfbf7] py-12 px-4 sm:px-8 flex flex-col items-center gap-20"
+      className="min-h-screen bg-[#fdfbf7] flex flex-col font-sans"
       style={{ backgroundImage: geometricPattern, backgroundAttachment: 'fixed' }}
     >
-      {/* 1. Main Hero Arch Container */}
-      <div className="max-w-4xl w-full bg-white relative rounded-t-[12rem] rounded-b-3xl shadow-2xl overflow-hidden border border-emerald-100/50">
-        
-        {/* Top Arch Decoration */}
-        <div className="h-64 bg-emerald-900 relative flex items-center justify-center rounded-t-[12rem] mt-3 mx-3 shadow-inner overflow-hidden">
-          {/* Decorative Gold Inner Arch */}
-          <div className="absolute inset-4 border-2 border-amber-400/40 rounded-t-[12rem] border-b-0"></div>
-          <div className="absolute inset-7 border border-amber-400/20 rounded-t-[12rem] border-b-0"></div>
-          
-          <Scroll className="w-20 h-20 text-amber-400 relative z-10" strokeWidth={1.5} />
-          
-          {/* Subtle glowing orb behind the scroll */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-amber-500/20 blur-3xl rounded-full"></div>
-        </div>
-
-        {/* Content Box */}
-        <div className="px-6 pt-12 pb-16 text-center sm:px-16">
-          <h4 className="text-emerald-700 font-bold tracking-[0.3em] uppercase text-sm mb-4">
-            Bismillah
-          </h4>
-          
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 mb-6 font-serif tracking-tight leading-tight">
-            Journey of <span className="text-emerald-700">Knowledge</span>
-          </h1>
-
-          <p className="text-slate-600 mb-12 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto font-medium">
-            "Seek knowledge from the cradle to the grave." Welcome to the official assessment portal. Prepare your heart and mind before you begin your evaluation.
-          </p>
-
-          <Link href="/login" className="inline-block w-full sm:w-auto">
-            <button className="group relative w-full sm:w-auto flex items-center justify-center px-12 py-5 bg-linear-to-r from-emerald-800 to-emerald-600 text-white text-xl font-bold rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(4,120,87,0.4)] hover:-translate-y-1 active:translate-y-0">
-              <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.2)_50%,transparent_75%)] bg-size-[250%_250%,100%_100%] bg-position-[-100%_0,0_0] bg-no-repeat transition-all duration-700 group-hover:bg-position-[200%_0,0_0]"></div>
-              <span className="relative text-amber-50 tracking-wide font-serif">Start the Journey</span>
-              <ArrowRight className="relative ml-3 w-6 h-6 text-amber-400 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </Link> 
-          <Link href="#program" className="m-2 inline-block w-full sm:w-auto">
-            <button className="group relative w-full sm:w-auto flex items-center justify-center px-12 py-5 bg-linear-to-r from-blue-800 to-emerald-600 text-white text-xl font-bold rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(4,120,87,0.4)] hover:-translate-y-1 active:translate-y-0">
-              <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.2)_50%,transparent_75%)] bg-size-[250%_250%,100%_100%] bg-position-[-100%_0,0_0] bg-no-repeat transition-all duration-700 group-hover:bg-position-[200%_0,0_0]"></div>
-              <span className="relative text-amber-50 tracking-wide font-serif">program details</span>
+      {/* 1. LMS Navigation Bar */}
+      <nav className="bg-white/80 backdrop-blur-md border-b border-emerald-100 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+          <div className="flex items-center space-x-3 text-emerald-800">
+            <div className="bg-emerald-100 p-2 rounded-lg">
+              <BookOpen className="w-6 h-6 text-emerald-700" />
+            </div>
+            <span className="text-xl font-bold font-serif tracking-tight">Institute Portal</span>
+          </div>
+          <Link href="/login">
+            <button className="flex items-center px-5 py-2.5 bg-slate-900 text-white text-sm font-medium rounded-xl hover:bg-emerald-800 transition-colors shadow-sm">
+              <UserCircle className="w-4 h-4 mr-2" />
+              Student Login
             </button>
           </Link>
         </div>
-      </div>
+      </nav>
 
-      {/* 2. Total Program Details */}
-      <section className="max-w-5xl w-full" id='program'>
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900">Program Details</h2>
-          <div className="w-20 h-1.5 bg-amber-400 mx-auto mt-6 rounded-full opacity-80"></div>
-        </div>
+      {/* 2. Portal Hero Section */}
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          <div className="bg-white rounded-3xl p-8 border border-emerald-100 shadow-xl shadow-emerald-900/5 flex flex-col items-center text-center relative overflow-hidden group">
-            <div className="absolute top-0 w-full h-1 bg-linear-to-r from-emerald-400 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div className="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 text-emerald-600 rotate-3 group-hover:-rotate-3 transition-transform">
-              <Calendar className="w-8 h-8" />
-            </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-3">Duration</h3>
-            <p className="text-slate-600 leading-relaxed">A structured 12-week comprehensive study period culminating in a final secure assessment.</p>
-          </div>
+        {/* Left: LMS Intro Text */}
+        <div className="flex-1 text-center lg:text-left">
+          <h4 className="text-emerald-700 font-bold tracking-[0.2em] uppercase text-xs mb-4 flex items-center justify-center lg:justify-start">
+            <span className="w-8 h-px bg-emerald-300 mr-3"></span>
+            Certification Program
+            <span className="w-8 h-px bg-emerald-300 ml-3 lg:hidden"></span>
+          </h4>
+          
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 font-serif tracking-tight leading-[1.1]">
+            Mastery of <br className="hidden lg:block" />
+            <span className="text-emerald-700">Al-Aqeedah Al-Tahawiyyah</span>
+          </h1>
 
-          <div className="bg-white rounded-3xl p-8 border border-amber-100 shadow-xl shadow-amber-900/5 flex flex-col items-center text-center relative overflow-hidden group">
-            <div className="absolute top-0 w-full h-1 bg-linear-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div className="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mb-6 text-amber-600 -rotate-3 group-hover:rotate-3 transition-transform">
-              <Award className="w-8 h-8" />
-            </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-3">Certification</h3>
-            <p className="text-slate-600 leading-relaxed">Successful candidates receive an accredited certificate recognized by scholarly boards.</p>
-          </div>
+          <p className="text-slate-600 mb-8 text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            Welcome to the official assessment portal for the foundational text of Islamic Creed. Complete your study, review the chapters, and take the final proctored examination to earn your certification.
+          </p>
 
-          <div className="bg-white rounded-3xl p-8 border border-emerald-100 shadow-xl shadow-emerald-900/5 flex flex-col items-center text-center relative overflow-hidden group">
-            <div className="absolute top-0 w-full h-1 bg-linear-to-r from-emerald-400 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div className="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 text-emerald-600 rotate-3 group-hover:-rotate-3 transition-transform">
-              <GraduationCap className="w-8 h-8" />
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-sm font-medium text-slate-700">
+            <div className="flex items-center bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm">
+              <ShieldCheck className="w-4 h-4 text-emerald-600 mr-2" /> Secure Exam
             </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-3">Methodology</h3>
-            <p className="text-slate-600 leading-relaxed">Rooted in traditional pedagogical methods combined with modern assessment technology.</p>
+            <div className="flex items-center bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm">
+              <Clock className="w-4 h-4 text-amber-600 mr-2" /> 60-Min Assessment
+            </div>
+          </div>
+        </div>
+
+        {/* Right: The Arch "Portal Entry" Card */}
+        <div className="w-full max-w-md">
+          <div className="bg-white relative rounded-t-[10rem] rounded-b-3xl shadow-2xl overflow-hidden border border-emerald-100/50 flex flex-col">
+            
+            {/* Arch Header */}
+            <div className="h-48 bg-emerald-900 relative flex items-center justify-center rounded-t-[10rem] mt-2 mx-2 shadow-inner overflow-hidden">
+              <div className="absolute inset-3 border-2 border-amber-400/40 rounded-t-[10rem] border-b-0"></div>
+              <div className="absolute inset-5 border border-amber-400/20 rounded-t-[10rem] border-b-0"></div>
+              <LayoutDashboard className="w-14 h-14 text-amber-400 relative z-10" strokeWidth={1.5} />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-amber-500/20 blur-3xl rounded-full"></div>
+            </div>
+
+            {/* Entry Form Area */}
+            <div className="p-8 text-center flex-1 flex flex-col">
+              <h2 className="text-2xl font-bold text-slate-900 font-serif mb-2">Student Access</h2>
+              <p className="text-slate-500 text-sm mb-8">Enter the portal to view your dashboard and pending assessments.</p>
+              
+              <Link href="/login" className="mt-auto">
+                <button className="group relative w-full flex items-center justify-center px-6 py-4 bg-linear-to-r from-emerald-800 to-emerald-600 text-white font-bold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                  <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.2)_50%,transparent_75%)] bg-size-[250%_250%,100%_100%] bg-position-[-100%_0,0_0] bg-no-repeat transition-all duration-700 group-hover:bg-position-[200%_0,0_0]"></div>
+                  <span className="relative tracking-wide">Enter Dashboard</span>
+                  <ArrowRight className="relative ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      {/* 3. Book Overview Section */}
+      <section className="w-full py-16 sm:py-24">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-3xl shadow-xl border border-emerald-100 overflow-hidden flex flex-col md:flex-row">
+            
+            {/* Left Image/Iconography side */}
+            <div className="md:w-2/5 bg-emerald-900 p-10 flex flex-col justify-center items-center text-center relative overflow-hidden">
+              <div className="absolute inset-0 opacity-10" style={{ backgroundImage: geometricPattern }}></div>
+              <Library className="w-20 h-20 text-amber-400 mb-6 relative z-10" />
+              <h3 className="text-2xl font-serif font-bold text-white relative z-10">Matn Al-Tahawiyyah</h3>
+              <p className="text-emerald-200 mt-2 font-medium relative z-10">By Imam Abu Ja'far al-Tahawi (d. 321 AH)</p>
+            </div>
+
+            {/* Right Text side */}
+            <div className="md:w-3/5 p-8 md:p-12">
+              <h2 className="text-3xl font-serif font-bold text-slate-900 mb-6">About the Text</h2>
+              <p className="text-slate-600 leading-relaxed mb-6">
+                Al-Aqeedah Al-Tahawiyyah is universally recognized as one of the most foundational and agreed-upon texts in Islamic Theology (Aqeedah). It summarizes the core beliefs of the early generations of scholars (the Salaf) and provides a clear framework for understanding the divine attributes, predestination, and prophethood.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600 mr-3 mt-0.5 shrink-0" />
+                  <p className="text-sm text-slate-700"><strong>Comprehensive Coverage:</strong> 105 core points of consensus among classical scholars.</p>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600 mr-3 mt-0.5 shrink-0" />
+                  <p className="text-sm text-slate-700"><strong>LMS Requirement:</strong> A minimum passing score of 80% is required to earn the certification.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 3. Syllabus Section */}
-      <section className="max-w-5xl w-full bg-white rounded-[2.5rem] shadow-2xl p-8 sm:p-14 border border-emerald-100/50 relative overflow-hidden">
-        {/* Decorative corner element */}
-        <div className="absolute -top-12 -right-12 w-40 h-40 bg-emerald-50 rounded-full blur-2xl opacity-70"></div>
-        
-        <div className="relative z-10">
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-12 text-center sm:text-left">
-            <div className="p-4 bg-emerald-100/50 rounded-2xl text-emerald-700">
-              <BookText className="w-10 h-10" />
-            </div>
+      {/* 4. Book Chapters / Syllabus Grid */}
+      <section className="w-full bg-white border-y border-emerald-100/50 py-16 sm:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900 mb-3">Core Syllabus</h2>
-              <p className="text-slate-500 text-lg">Topics covered in the final examination phase.</p>
+              <h2 className="text-3xl font-serif font-bold text-slate-900 mb-3">Assessment Chapters</h2>
+              <p className="text-slate-500">The final examination will draw questions from the following sections of the book.</p>
             </div>
+            <Link href="/login" className="hidden md:flex items-center text-emerald-700 font-semibold hover:text-emerald-800 transition-colors">
+              Access Study Materials <ChevronRight className="w-4 h-4 ml-1" />
+            </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Aqeedah (Theology)", desc: "Core tenets of faith, divine attributes, and foundational beliefs." },
-              { title: "Fiqh (Jurisprudence)", desc: "Rules of purification, prayer, fasting, and daily transactions." },
-              { title: "Seerah (Prophetic Biography)", desc: "Life of the Prophet (PBUH), major events, and lessons." },
-              { title: "Tafsir (Quranic Exegesis)", desc: "Interpretation of selected surahs and sciences of the Quran." },
-              { title: "Hadith Studies", desc: "Understanding narrations, chains of transmission, and context." },
-              { title: "Tazkiyah (Purification)", desc: "Diseases of the heart, ethics, and spiritual excellence." },
-            ].map((item, idx) => (
-              <div key={idx} className="flex items-start">
-                <CheckCircle2 className="w-6 h-6 text-amber-500 mr-4 shrink-0 mt-1" />
-                <div>
-                  <h4 className="text-lg font-bold text-slate-900 mb-1">{item.title}</h4>
-                  <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+              { id: "CH-01", title: "Tawheed & Divine Attributes", desc: "The oneness of Allah, His eternal names, and attributes without distortion or denial." },
+              { id: "CH-02", title: "Prophethood & Revelation", desc: "The finality of Prophet Muhammad (PBUH) and the authenticity of the Quran." },
+              { id: "CH-03", title: "Predestination (Qadar)", desc: "Understanding divine decree, human will, and the written destiny." },
+              { id: "CH-04", title: "The Unseen & Afterlife", desc: "Belief in angels, the Throne, the Pen, and the events of the Day of Judgment." },
+              { id: "CH-05", title: "Faith (Iman) & Actions", desc: "The definition of faith, its relationship with actions, and the status of major sinners." },
+              { id: "CH-06", title: "The Companions & Leadership", desc: "The virtues of the Sahabah, the caliphate, and obligations toward leadership." },
+            ].map((course, idx) => (
+              <div key={idx} className="bg-[#fdfbf7] rounded-2xl border border-emerald-100 p-6 flex flex-col group hover:shadow-md hover:border-emerald-200 transition-all duration-300">
+                <div className="flex justify-between items-start mb-4">
+                  <div className="w-12 h-12 bg-white rounded-xl shadow-sm border border-slate-100 flex items-center justify-center text-emerald-700 group-hover:bg-emerald-700 group-hover:text-white transition-colors">
+                    <BookText className="w-6 h-6" />
+                  </div>
+                  <span className="text-xs font-mono font-semibold text-slate-400 bg-slate-100 px-2 py-1 rounded-md">
+                    {course.id}
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2 font-serif">{course.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed mb-6 flex-1">
+                  {course.desc}
+                </p>
+                <div className="pt-4 border-t border-emerald-900/10 flex items-center justify-between text-sm">
+                  <span className="flex items-center text-slate-500 font-medium">
+                    <Lock className="w-4 h-4 mr-1.5 text-amber-500" /> Locked
+                  </span>
+                  <span className="text-emerald-700 font-semibold flex items-center group-hover:translate-x-1 transition-transform">
+                    Requires Login <ChevronRight className="w-4 h-4 ml-0.5" />
+                  </span>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* 4. Question Types Section */}
-      <section className="max-w-5xl w-full mb-12">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900">Assessment Format</h2>
-          <div className="w-20 h-1.5 bg-amber-400 mx-auto mt-6 rounded-full opacity-80"></div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white p-6 rounded-2xl shadow-lg shadow-slate-200/40 border border-slate-100 flex flex-col items-center text-center">
-            <div className="p-3 bg-blue-50 text-blue-600 rounded-xl mb-4"><LayoutList className="w-6 h-6" /></div>
-            <h4 className="font-bold text-slate-900 mb-2">Multiple Choice</h4>
-            <p className="text-sm text-slate-500">Test factual recall and conceptual understanding.</p>
-          </div>
           
-          <div className="bg-white p-6 rounded-2xl shadow-lg shadow-slate-200/40 border border-slate-100 flex flex-col items-center text-center">
-            <div className="p-3 bg-emerald-50 text-emerald-600 rounded-xl mb-4"><Target className="w-6 h-6" /></div>
-            <h4 className="font-bold text-slate-900 mb-2">Scenario-Based</h4>
-            <p className="text-sm text-slate-500">Apply Fiqh rulings to real-world modern situations.</p>
+        </div>
+      </section>
+
+      {/* 5. Sample Questions Preview */}
+      <section className="w-full py-16 sm:py-24 bg-slate-900 relative overflow-hidden">
+        {/* Subtle background decoration */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-800/20 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-800/20 blur-3xl rounded-full -translate-x-1/2 translate-y-1/2"></div>
+        
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-serif font-bold text-white mb-4">Assessment Preview</h2>
+            <p className="text-slate-400 max-w-2xl mx-auto">Familiarize yourself with the LMS testing environment. Questions will evaluate both memorization of principles and conceptual understanding.</p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl shadow-lg shadow-slate-200/40 border border-slate-100 flex flex-col items-center text-center">
-            <div className="p-3 bg-purple-50 text-purple-600 rounded-xl mb-4"><FileQuestion className="w-6 h-6" /></div>
-            <h4 className="font-bold text-slate-900 mb-2">Scriptural Analysis</h4>
-            <p className="text-sm text-slate-500">Interpret verses or Hadith based on classical Tafsir.</p>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Sample Question 1 */}
+            <div className="bg-slate-800 border border-slate-700 rounded-2xl p-8 shadow-xl">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="bg-slate-700 p-2 rounded-lg text-emerald-400">
+                  <FileQuestion className="w-5 h-5" />
+                </div>
+                <span className="text-sm font-semibold text-slate-300 tracking-wider uppercase">Sample Concept</span>
+              </div>
+              <p className="text-lg text-white font-medium mb-6">
+                According to the text, how does Imam At-Tahawi describe the speech of Allah (Kalamullah)?
+              </p>
+              <div className="space-y-3">
+                <div className="w-full p-4 rounded-xl border border-slate-600 bg-slate-700/50 text-slate-300 text-sm text-left opacity-70 cursor-not-allowed">A. It is created like human speech.</div>
+                <div className="w-full p-4 rounded-xl border border-emerald-500/50 bg-emerald-500/10 text-white text-sm text-left flex justify-between items-center">
+                  B. It is uncreated and originated from Him without a modality. <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                </div>
+                <div className="w-full p-4 rounded-xl border border-slate-600 bg-slate-700/50 text-slate-300 text-sm text-left opacity-70 cursor-not-allowed">C. It was originated by the Angel Gabriel.</div>
+              </div>
+            </div>
 
-          <div className="bg-white p-6 rounded-2xl shadow-lg shadow-slate-200/40 border border-slate-100 flex flex-col items-center text-center">
-            <div className="p-3 bg-amber-50 text-amber-600 rounded-xl mb-4"><Clock className="w-6 h-6" /></div>
-            <h4 className="font-bold text-slate-900 mb-2">Time Restricted</h4>
-            <p className="text-sm text-slate-500">Assessments are monitored and strictly timed.</p>
+            {/* Sample Question 2 */}
+            <div className="bg-slate-800 border border-slate-700 rounded-2xl p-8 shadow-xl">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="bg-slate-700 p-2 rounded-lg text-amber-400">
+                  <Quote className="w-5 h-5" />
+                </div>
+                <span className="text-sm font-semibold text-slate-300 tracking-wider uppercase">Sample Textual Recall</span>
+              </div>
+              <p className="text-lg text-white font-medium mb-6">
+                "No human intellect can comprehend Him, nor can any human delusion encompass Him..." Which principle does this statement establish?
+              </p>
+              <div className="space-y-3">
+                <div className="w-full p-4 rounded-xl border border-emerald-500/50 bg-emerald-500/10 text-white text-sm text-left flex justify-between items-center">
+                  A. The transcendence and incomparability of Allah. <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                </div>
+                <div className="w-full p-4 rounded-xl border border-slate-600 bg-slate-700/50 text-slate-300 text-sm text-left opacity-70 cursor-not-allowed">B. The hidden nature of predestination.</div>
+                <div className="w-full p-4 rounded-xl border border-slate-600 bg-slate-700/50 text-slate-300 text-sm text-left opacity-70 cursor-not-allowed">C. The limits of the Prophet's knowledge.</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Footer minimal */}
-      <footer className="w-full text-center py-8 text-slate-500 text-sm border-t border-emerald-900/10">
-        <p>© {new Date().getFullYear()} Institute Learning Management System. Seeking Excellence in Education.</p>
+      {/* Footer */}
+      <footer className="w-full text-center py-8 text-slate-500 text-sm">
+        <p>© {new Date().getFullYear()} Institute Learning Management System. Dedicated to Preserving Knowledge.</p>
       </footer>
     </div>
   );
